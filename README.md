@@ -21,6 +21,8 @@ The parser takes an parser-object and returns a function. For more information s
 
 - written in typescript
 - compatible with `vue-router@3` and `vue-router@4`
+- parse to Number/String/Date
+- parse route.params and/or route.query
 
 Original idea from: https://stackoverflow.com/a/63897213
 
@@ -29,16 +31,24 @@ Original idea from: https://stackoverflow.com/a/63897213
 ```ts
 // src/router/index.ts
 import propsParser from 'vue-router-parse-props'
+import { parse } from 'date-fns'
 
 const router = new Router({
   base: process.env.BASE_URL,
   mode: useHistory ? "history" : "hash",
   routes: [
     {
-      path: ":userId",
-      name: "UserProfile",
-      component: () => import("@/components/UserProfile.vue"),
-      props: paramsToPropsCaster({ userId: Number })
+      path: ':day/:userId',
+      name: 'UserProfile',
+      component: () => import('@/components/UserProfile.vue'),
+      props: paramsToPropsCaster({ 
+        userId: Number,
+        day: (val: string): Date => parse(val, 'yyyy-MM-dd', new Date()),
+        searchId: {
+          type: id,
+          routeKey: "query.q"
+        }
+      })
     }
   ]
 });

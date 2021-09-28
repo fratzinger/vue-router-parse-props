@@ -1,8 +1,8 @@
-import caster from "./caster";
+import castProps from "./castProps";
 export * from "./types";
 
-export default caster;
+export default castProps;
 
 if (typeof module !== "undefined") {
-  module.exports = Object.assign(caster, module.exports);
+  module.exports = Object.assign(castProps, module.exports);
 }
