@@ -20,12 +20,14 @@ Params of vue-router coming from the url are strings. Ids as props (eg. `userId`
 The parser takes an parser-object and returns a function. For more information see: https://router.vuejs.org/guide/essentials/passing-props.html#function-mode
 
 - written in typescript
+- compatible with `vue-router@3` and `vue-router@4`
 
 Original idea from: https://stackoverflow.com/a/63897213
 
 ## Usage
 
 ```ts
+// src/router/index.ts
 import propsParser from 'vue-router-parse-props'
 
 const router = new Router({
