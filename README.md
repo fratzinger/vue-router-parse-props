@@ -4,7 +4,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/fratzinger/vue-router-parse-props/Node.js%20CI)](https://github.com/fratzinger/vue-router-parse-props/actions?query=branch%3Amain++)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/fratzinger/vue-router-parse-props)](https://codeclimate.com/github/fratzinger/vue-router-parse-props)
 [![Code Climate coverage](https://img.shields.io/codeclimate/coverage/fratzinger/vue-router-parse-props)](https://codeclimate.com/github/fratzinger/vue-router-parse-props)
-[![David](https://img.shields.io/david/fratzinger/vue-router-parse-props)](https://david-dm.org/fratzinger/vue-router-parse-props)
+[![libraries.io](https://img.shields.io/librariesio/release/npm/vue-router-parse-props)](https://libraries.io/npm/vue-router-parse-props)
 [![npm](https://img.shields.io/npm/dm/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
 [![GitHub license](https://img.shields.io/github/license/fratzinger/vue-router-parse-props)](https://github.com/fratzinger/vue-router-parse-props/blob/master/LICENSE)
 
@@ -35,7 +35,7 @@ import { parse } from 'date-fns'
 
 const router = new Router({
   base: process.env.BASE_URL,
-  mode: useHistory ? "history" : "hash",
+  mode: useHistory ? 'history' : 'hash',
   routes: [
     {
       path: ':day/:userId',
@@ -44,9 +44,15 @@ const router = new Router({
       props: paramsToPropsCaster({ 
         userId: Number,
         day: (val: string): Date => parse(val, 'yyyy-MM-dd', new Date()),
-        searchId: {
-          type: id,
-          routeKey: "query.q"
+        // keys starting with 'query.${}' look at 'route.query.${}'
+        'query.q': {
+          type: Number,
+          propKey: 'searchId'
+        },
+        // keys starting with 'params.${}' look at 'route.params${}' explicitly
+        'params.ids': {
+          type: (ids) => ids.map(id => parseInt(id)),
+          propKey: 'ids'
         }
       })
     }

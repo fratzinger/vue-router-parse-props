@@ -77,10 +77,33 @@ describe("castProps.test.ts", function() {
     it("casts query string to integer", function() {
       const route = { query: { id: "1" } } as unknown as Route;
       const result = castProps({
-        id: { type: Number, routeKey: "query.id" }
+        "query.id": { type: Number, propKey: "id" }
       })(route);
   
       assert.deepStrictEqual(result, { id: 1 }, "parses to integer");
+    });
+
+    it("casts query string[] to integer[] with default propKey", function() {
+      const route = { query: { id: ["1", "2", "3"] } } as unknown as Route;
+      const result = castProps({
+        "query.id": {
+          type: (val: string[]): number[] => val.map(x => parseInt(x))
+        }
+      })(route);
+  
+      assert.deepStrictEqual(result, { "query.id": [1, 2, 3] }, "parses to integer");
+    });
+
+    it("casts query string[] to integer[] with custom propKey", function() {
+      const route = { query: { id: ["1", "2", "3"] } } as unknown as Route;
+      const result = castProps({
+        "query.id": {
+          type: (val: string[]): number[] => val.map(x => parseInt(x)),
+          propKey: "id"
+        }
+      })(route);
+  
+      assert.deepStrictEqual(result, { id: [1, 2, 3] }, "parses to integer");
     });
 
     it("doesn't use undefined Params by default", function() {

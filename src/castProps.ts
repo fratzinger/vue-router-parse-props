@@ -22,11 +22,12 @@ const castProps = (
       const mapping = mappings[key];
 
       if (typeof mapping === "function") {
-        const val = route.params[key];
+        const val = (key.startsWith("query.") || key.startsWith("params.")) ? _get(route, key) : route.params[key];
         result[key] = mapping(val);
       } else {
-        const val = (mapping.routeKey) ? _get(route, mapping.routeKey) : route.params[key];
-        result[key] = mapping.type(val);
+        const val = (key.startsWith("query.") || key.startsWith("params.")) ? _get(route, key) : route.params[key];
+        const propKey = mapping.propKey || key;
+        result[propKey] = mapping.type(val);
       }
     }
 
