@@ -1,8 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type CasterProp = Function | {
+export type CasterProp = Function | CasterPropObject;
+
+export type CasterPropObject = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   type: Function
-  routeKey?: string
+  propKey?: string
 }
 
 export interface Mappings {
