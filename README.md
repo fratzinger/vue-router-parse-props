@@ -35,7 +35,7 @@ import { parse } from 'date-fns'
 
 const router = new Router({
   base: process.env.BASE_URL,
-  mode: useHistory ? "history" : "hash",
+  mode: useHistory ? 'history' : 'hash',
   routes: [
     {
       path: ':day/:userId',
@@ -44,9 +44,15 @@ const router = new Router({
       props: paramsToPropsCaster({ 
         userId: Number,
         day: (val: string): Date => parse(val, 'yyyy-MM-dd', new Date()),
-        searchId: {
-          type: id,
-          routeKey: "query.q"
+        // keys starting with 'query.${}' look at 'route.query.${}'
+        'query.q': {
+          type: Number,
+          propKey: 'searchId'
+        },
+        // keys starting with 'params.${}' look at 'route.params${}' explicitly
+        'params.ids': {
+          type: (ids) => ids.map(id => parseInt(id)),
+          propKey: 'ids'
         }
       })
     }
