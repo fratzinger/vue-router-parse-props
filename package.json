@@ -1,7 +1,8 @@
 {
   "name": "vue-router-parse-props",
   "version": "0.2.0",
-  "description": "",
+  "description": "Parse params and query in vue-router to component props.",
+  "keywords": ["vue", "vue-router", "parse", "params", "query", "props"],
   "main": "dist/",
   "types": "dist/",
   "directories": {

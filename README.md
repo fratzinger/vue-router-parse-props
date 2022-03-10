@@ -4,7 +4,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/fratzinger/vue-router-parse-props/Node.js%20CI)](https://github.com/fratzinger/vue-router-parse-props/actions?query=branch%3Amain++)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/fratzinger/vue-router-parse-props)](https://codeclimate.com/github/fratzinger/vue-router-parse-props)
 [![Code Climate coverage](https://img.shields.io/codeclimate/coverage/fratzinger/vue-router-parse-props)](https://codeclimate.com/github/fratzinger/vue-router-parse-props)
-[![David](https://img.shields.io/david/fratzinger/vue-router-parse-props)](https://david-dm.org/fratzinger/vue-router-parse-props)
+[![libraries.io](https://img.shields.io/librariesio/release/npm/vue-router-parse-props)](https://libraries.io/npm/vue-router-parse-props)
 [![npm](https://img.shields.io/npm/dm/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
 [![GitHub license](https://img.shields.io/github/license/fratzinger/vue-router-parse-props)](https://github.com/fratzinger/vue-router-parse-props/blob/master/LICENSE)
 
