@@ -1,8 +1,5 @@
-import castProps from "./castProps";
-export * from "./types";
+import castProps from './castProps'
 
-export default castProps;
+export * from './types'
 
-if (typeof module !== "undefined") {
-  module.exports = Object.assign(castProps, module.exports);
-}
+export default castProps

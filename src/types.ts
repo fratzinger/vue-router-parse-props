@@ -1,8 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CasterProp = Function | CasterPropObject;
+// eslint-disable-next-line ts/no-unsafe-function-type
+export type CasterProp = Function | CasterPropObject
 
-export type CasterPropObject = {
-  // eslint-disable-next-line @typescript-eslint/ban-types
+export interface CasterPropObject {
+  // eslint-disable-next-line ts/no-unsafe-function-type
   type: Function
   propKey?: string
 }
