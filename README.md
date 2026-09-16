@@ -1,10 +1,10 @@
 # vue-router-parse-props
 
-[![npm](https://img.shields.io/npm/v/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
+[![npm version](https://img.shields.io/npm/v/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/fratzinger/vue-router-parse-props/ci.yml?branch=main)](https://github.com/fratzinger/vue-router-parse-props/actions?query=branch%3Amain)
 [![libraries.io](https://img.shields.io/librariesio/release/npm/vue-router-parse-props)](https://libraries.io/npm/vue-router-parse-props)
-[![npm](https://img.shields.io/npm/dm/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
-[![GitHub license](https://img.shields.io/github/license/fratzinger/vue-router-parse-props)](https://github.com/fratzinger/vue-router-parse-props/blob/master/LICENSE)
+[![npm downloads](https://img.shields.io/npm/dm/vue-router-parse-props)](https://www.npmjs.com/package/vue-router-parse-props)
+[![GitHub license](https://img.shields.io/github/license/fratzinger/vue-router-parse-props)](https://github.com/fratzinger/vue-router-parse-props/blob/main/LICENSE)
 
 ## Installation
 
