@@ -2,31 +2,26 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
-      "resolveSourceMapLocations": [
-        "${workspaceFolder}/**",
-        "!**/node_modules/**"
-      ],
+      "type": "node",
       "request": "launch",
-      "name": "Mocha Tests",
-      "program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
-      "args": [
-        "--require",
-        "ts-node/register",
-        "--timeout",
-        "999999",
-        "--colors",
-        "--recursive"
-      ],
-      "internalConsoleOptions": "openOnSessionStart",
-      "env": {
-        "NODE_ENV": "test",
-        "TS_NODE_PROJECT": "tsconfig.test.json"
-      },
-      "outputCapture": "std",
-      "skipFiles": [
-        "<node_internals>/**"
-      ]
+      "name": "Vitest: current file",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+      "args": ["run", "${relativeFile}"],
+      "smartStep": true,
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Vitest: all tests",
+      "autoAttachChildProcesses": true,
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+      "args": ["run"],
+      "smartStep": true,
+      "console": "integratedTerminal"
     }
   ]
 }

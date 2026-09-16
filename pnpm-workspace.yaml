@@ -1,0 +1,6 @@
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - '@types/node@26.6.1'
+
+trustPolicy: no-downgrade
+shellEmulator: true
