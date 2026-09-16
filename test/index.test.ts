@@ -1,8 +1,9 @@
 import assert from 'node:assert'
-import paramsToPropsCaster from '../src'
+import { describe, it } from 'vitest'
+import { castProps } from '../src'
 
 describe('index.test.ts', () => {
   it('has exports', () => {
-    assert.ok(paramsToPropsCaster)
+    assert.ok(castProps)
   })
 })

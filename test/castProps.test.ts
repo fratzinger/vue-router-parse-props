@@ -4,8 +4,9 @@ import {
   isSameSecond,
   parse,
 } from 'date-fns'
+import { describe, it } from 'vitest'
 
-import castProps from '../src'
+import { castProps } from '../src'
 
 describe('castProps.test.ts', () => {
   describe('as function', () => {
@@ -91,7 +92,25 @@ describe('castProps.test.ts', () => {
         },
       })(route)
 
-      assert.deepStrictEqual(result, { 'query.id': [1, 2, 3] }, 'parses to integer')
+      assert.deepStrictEqual(result, { id: [1, 2, 3] }, 'strips the query. prefix')
+    })
+
+    it('strips the params. prefix for the default propKey', () => {
+      const route = { params: { id: '1' } } as unknown as RouteLocationNormalized
+      const result = castProps({
+        'params.id': { type: Number },
+      })(route)
+
+      assert.deepStrictEqual(result, { id: 1 }, 'strips the params. prefix')
+    })
+
+    it('leaves a plain unprefixed param key untouched', () => {
+      const route = { params: { id: '1' } } as unknown as RouteLocationNormalized
+      const result = castProps({
+        id: { type: Number },
+      })(route)
+
+      assert.deepStrictEqual(result, { id: 1 }, 'unprefixed keys are unaffected')
     })
 
     it('casts query string[] to integer[] with custom propKey', () => {
