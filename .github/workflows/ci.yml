@@ -56,11 +56,8 @@ jobs:
           node-version: 24.x
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - uses: paambaati/codeclimate-action@v9
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: pnpm run coverage
+      # Thresholds are enforced by vitest.config.ts, so this fails on a drop.
+      - run: pnpm run coverage
 
   build:
     name: build
